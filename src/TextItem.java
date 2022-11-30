@@ -13,21 +13,14 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-/** <p>A text item.</p>
- * <p>A text item has drawing capabilities.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
+/**
+ * A text item that has drawing capabilities
  */
 
 public class TextItem extends SlideItem {
 	private String text;
 	
-	private static final String EMPTYTEXT = "No Text Given";
+	private static final String EMPTY_TEXT = "No Text Given";
 
 //A textitem of int level with text string
 	public TextItem(int level, String string) {
@@ -37,7 +30,7 @@ public class TextItem extends SlideItem {
 
 //An empty textitem
 	public TextItem() {
-		this(0, EMPTYTEXT);
+		this(0, EMPTY_TEXT);
 	}
 
 //Returns the text
@@ -57,9 +50,7 @@ public class TextItem extends SlideItem {
 			float scale, Style myStyle) {
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
 		int xsize = 0, ysize = (int) (myStyle.leading * scale);
-		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext()) {
-			TextLayout layout = iterator.next();
+		for (TextLayout layout : layouts) {
 			Rectangle2D bounds = layout.getBounds();
 			if (bounds.getWidth() > xsize) {
 				xsize = (int) bounds.getWidth();
@@ -83,9 +74,7 @@ public class TextItem extends SlideItem {
 				y + (int) (myStyle.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(myStyle.color);
-		Iterator<TextLayout> it = layouts.iterator();
-		while (it.hasNext()) {
-			TextLayout layout = it.next();
+		for (TextLayout layout : layouts) {
 			pen.y += layout.getAscent();
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
@@ -107,6 +96,6 @@ public class TextItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "TextItem[" + getLevel()+","+getText()+"]";
+		return String.format("TextItem[%s,%s]", getLevel(), getText());
 	}
 }
