@@ -16,11 +16,12 @@ public class Presentation {
     private SlideViewerComponent slideViewComponent = null; //The view component of the slides
 
     public Presentation() {
-        slideViewComponent = null;
-        clear();
+        this(null);
     }
 
     public Presentation(SlideViewerComponent slideViewerComponent) {
+        // Generate styles for a presentation
+        StyleFactory.generateDefaultStyles();
         this.slideViewComponent = slideViewerComponent;
         clear();
     }

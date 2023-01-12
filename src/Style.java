@@ -11,8 +11,7 @@ import java.awt.*;
  */
 
 public class Style {
-    private static final String FONTNAME = "Helvetica";
-    private static Style[] styles; // de styles
+    private static final String FONTNAME = "Helvetica";// de styles
     int indent;
     Color color;
     Font font;
@@ -24,17 +23,6 @@ public class Style {
         this.color = color;
         font = new Font(FONTNAME, Font.BOLD, fontSize = points);
         this.leading = leading;
-    }
-
-    public static void createStyles() {
-        styles = StyleFactory.generateDefaultStyles();
-    }
-
-    public static Style getStyle(int level) {
-        if (level >= styles.length) {
-            level = styles.length - 1;
-        }
-        return styles[level];
     }
 
     public String toString() {

@@ -1,9 +1,10 @@
 import java.awt.*;
-import java.lang.reflect.Array;
 
 public class StyleFactory {
-    public static Style[] generateDefaultStyles() {
-        Style[] styles = new Style[5];
+    private static Style[] styles;
+
+    public static void generateDefaultStyles() {
+        styles = new Style[5];
         // style voor item-level 0
         styles[0] = new Style(0, Color.red, 48, 20);
         // style voor item-level 1
@@ -14,6 +15,11 @@ public class StyleFactory {
         styles[3] = new Style(70, Color.black, 30, 10);
         // style voor item-level 4
         styles[4] = new Style(90, Color.black, 24, 10);
-        return styles;
+    }
+    public static Style getStyle(int level) {
+        if (level >= styles.length) {
+            level = styles.length - 1;
+        }
+        return styles[level];
     }
 }
