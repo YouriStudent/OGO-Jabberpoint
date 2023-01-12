@@ -16,45 +16,23 @@ public class Slide {
     protected Vector<SlideItem> items; //The SlideItems are kept in a vector
 
     public Slide() {
-        items = new Vector<SlideItem>();
+        items = new Vector<>();
     }
 
-    //Add a SlideItem
+    /*
+     * Append
+     */
     public void append(SlideItem anItem) {
         items.addElement(anItem);
     }
 
-    //Return the title of a slide
-    public String getTitle() {
-        return title;
-    }
-
-    //Change the title of a slide
-    public void setTitle(String newTitle) {
-        title = newTitle;
-    }
-
-    //Create a TextItem out of a String and add the TextItem
     public void append(int level, String message) {
         append(new TextItem(level, message));
     }
 
-    //Returns the SlideItem
-    public SlideItem getSlideItem(int number) {
-        return items.elementAt(number);
-    }
-
-    //Return all the SlideItems in a vector
-    public Vector<SlideItem> getSlideItems() {
-        return items;
-    }
-
-    //Returns the size of a slide
-    public int getSize() {
-        return items.size();
-    }
-
-    //Draws the slide
+    /*
+     * Main Functions
+     */
     public void draw(Graphics g, Rectangle area, ImageObserver view) {
         float scale = getScale(area);
         int y = area.y;
@@ -73,8 +51,32 @@ public class Slide {
         }
     }
 
+    /*
+     * GETTERS
+     */
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getSize() {
+        return this.items.size();
+    }
+
+    public Vector<SlideItem> getSlideItems() {
+        return this.items;
+    }
+
     //Returns the scale to draw a slide
     private float getScale(Rectangle area) {
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
     }
+
+    /*
+     * SETTERS
+     */
+    public void setTitle(String newTitle) {
+        title = newTitle;
+    }
+
 }
