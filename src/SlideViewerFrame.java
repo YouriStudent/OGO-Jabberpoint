@@ -28,7 +28,7 @@ public class SlideViewerFrame extends JFrame {
         setTitle(JABTITLE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                JabberPoint.exit(0);
             }
         });
         getContentPane().add(slideViewerComponent);
