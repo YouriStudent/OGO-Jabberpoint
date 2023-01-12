@@ -68,7 +68,7 @@ public class MenuController extends MenuBar {
         });
         fileMenu.addSeparator();
         fileMenu.add(menuItem = mkMenuItem(EXIT));
-        menuItem.addActionListener(actionEvent -> presentation.exit(0));
+        menuItem.addActionListener(actionEvent -> JabberPoint.exit(0));
         add(fileMenu);
         Menu viewMenu = new Menu(VIEW);
         viewMenu.add(menuItem = mkMenuItem(NEXT));

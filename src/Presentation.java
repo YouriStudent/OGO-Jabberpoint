@@ -93,7 +93,5 @@ public class Presentation {
         return getSlide(currentSlideNumber);
     }
 
-    public void exit(int n) {
-        System.exit(n);
-    }
+
 }

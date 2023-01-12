@@ -38,4 +38,8 @@ public class JabberPoint {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+    public static void exit(int n) {
+        System.exit(n);
+    }
+
 }
