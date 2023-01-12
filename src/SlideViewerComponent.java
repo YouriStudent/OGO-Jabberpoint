@@ -12,7 +12,7 @@ import java.awt.*;
 public class SlideViewerComponent extends JComponent {
 
     private static final long serialVersionUfID = 227L;
-    private static final Color BGCOLOR = Color.gray;
+    private static final Color BGCOLOR = Color.white;
     private static final Color COLOR = Color.black;
     private static final String FONTNAME = "Dialog";
     private static final int FONTSTYLE = Font.BOLD;
