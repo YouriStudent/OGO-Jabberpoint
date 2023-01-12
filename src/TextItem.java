@@ -23,10 +23,6 @@ public class TextItem extends SlideItem {
         text = string;
     }
 
-    //An empty textitem
-    public TextItem() {
-        this(0, EMPTY_TEXT);
-    }
 
     //Returns the text
     public String getText() {
@@ -41,8 +37,7 @@ public class TextItem extends SlideItem {
     }
 
     //Returns the bounding box of an Item
-    public Rectangle getBoundingBox(Graphics g, ImageObserver observer,
-                                    float scale, Style myStyle) {
+    public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
         List<TextLayout> layouts = getLayouts(g, myStyle, scale);
         int xsize = 0, ysize = (int) (myStyle.leading * scale);
         for (TextLayout layout : layouts) {
@@ -59,8 +54,7 @@ public class TextItem extends SlideItem {
     }
 
     //Draws the item
-    public void draw(int x, int y, float scale, Graphics g,
-                     Style myStyle, ImageObserver o) {
+    public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
         if (text == null || text.length() == 0) {
             return;
         }
