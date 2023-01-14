@@ -20,8 +20,6 @@ public class Presentation {
     }
 
     public Presentation(SlideViewerComponent slideViewerComponent) {
-        // Generate styles for a presentation
-        StyleFactory.generateDefaultStyles();
         this.slideViewComponent = slideViewerComponent;
         clear();
     }
@@ -42,14 +40,16 @@ public class Presentation {
         this.slideViewComponent = slideViewerComponent;
     }
 
-    //Returns the number of the current slide
+    // Returns the current slide number
     public int getSlideNumber() {
         return currentSlideNumber;
     }
 
-    //Change the current slide number and report it the the window
-    public void setSlideNumber(int number) {
-        currentSlideNumber = number;
+    // report the current slide number to the window
+    public void changeSlide(int number) {
+        if (slides != null && slides.size() > number) {
+            currentSlideNumber = number;
+        }
         if (slideViewComponent != null) {
             slideViewComponent.update(this, getCurrentSlide());
         }
@@ -58,21 +58,21 @@ public class Presentation {
     //Navigate to the previous slide unless we are at the first slide
     public void prevSlide() {
         if (currentSlideNumber > 0) {
-            setSlideNumber(currentSlideNumber - 1);
+            changeSlide(currentSlideNumber - 1);
         }
     }
 
     //Navigate to the next slide unless we are at the last slide
     public void nextSlide() {
         if (currentSlideNumber < (slides.size() - 1)) {
-            setSlideNumber(currentSlideNumber + 1);
+            changeSlide(currentSlideNumber + 1);
         }
     }
 
     //Remove the presentation
     void clear() {
         slides = new ArrayList<Slide>();
-        setSlideNumber(-1);
+        changeSlide(-1);
     }
 
     //Add a slide to the presentation
