@@ -8,33 +8,44 @@ public class PresentationFactory {
     protected static final String IOEX = "IO Exception: ";
     protected static final String LOADERR = "Load Error";
     protected static final String SAVEERR = "Save Error";
+
     public static void loadPresentation(String type, Presentation presentation, String filename) {
         // Generate styles for a presentation
         StyleFactory.generateDefaultStyles();
+        Accessor accessor;
 
         if (type == null) {
-            new DemoPresentation().loadFile(presentation, filename);
-            presentation.changeSlide(0);
+            accessor = new DemoPresentation();
+        } else if (type.equals("xml")) {
+            accessor = new XMLAccessor();
+        } else {
+            JOptionPane.showMessageDialog(null, String.format("Function not available for type %s", type));
             return;
         }
-        type = type.toLowerCase();
-        if (type.equals("xml")) {
-            try {
-                new XMLAccessor().loadFile(presentation, filename);
-                presentation.changeSlide(0);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
-            }
+        try {
+            accessor.loadFile(presentation, filename);
+            presentation.changeSlide(0);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public static void savePresentation(String type, Presentation presentation, String filename, Frame parent){
-        Accessor xmlAccessor = new XMLAccessor();
+    public static void savePresentation(String type, Presentation presentation, String filename, Frame parent) {
+
+        Accessor accessor;
+        if (type == null) {
+            accessor = new DemoPresentation();
+        } else if (type.equals("xml")) {
+            accessor = new XMLAccessor();
+        } else {
+            JOptionPane.showMessageDialog(parent, String.format("Function not available for type %s", type));
+            return;
+        }
+
         try {
-            xmlAccessor.saveFile(presentation, filename);
+            accessor.saveFile(presentation, filename);
         } catch (IOException exc) {
-            JOptionPane.showMessageDialog(parent, IOEX + exc,
-                    SAVEERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
         }
     }
 }
