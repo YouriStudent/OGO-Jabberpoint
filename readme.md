@@ -35,6 +35,6 @@ Youri Tapper ***Studentnummer*** 5076315
 
 # ClassDiagram
 ## Office versie
-
+![JabberPoint-oud.png](JabberPoint-oud.png)
 ## Nieuwe systeem
 ![nieuwe-versie.png](nieuwe-versie.png)
