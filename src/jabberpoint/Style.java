@@ -13,7 +13,7 @@ import java.awt.*;
  */
 
 public class Style {
-    private static final String FONTNAME = "Helvetica";// de styles
+    private static final String FONTNAME = "Helvetica";
     int indent;
     Color color;
     Font font;

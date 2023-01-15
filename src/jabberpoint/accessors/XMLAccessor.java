@@ -27,12 +27,6 @@ import static jabberpoint.utility.XMLAttributes.*;
  */
 
 public class XMLAccessor extends Accessor {
-
-    /**
-     * Default API to use.
-     */
-    protected static final String DEFAULT_API_TO_USE = "dom";
-
     /**
      * Text of messages
      */
@@ -44,7 +38,6 @@ public class XMLAccessor extends Accessor {
     private String getTitle(Element element, String tagName) {
         NodeList titles = element.getElementsByTagName(tagName);
         return titles.item(0).getTextContent();
-
     }
 
     public void loadFile(Presentation presentation, String filename) throws IOException {
