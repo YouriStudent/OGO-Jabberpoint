@@ -28,3 +28,7 @@ Youri Tapper ***Studentnummer*** 5076315
 7. Uit de `MenuController` class de functie `createMenuItem` omdat ik vind dat dit door een Factory moet gebeuren.
 8. Uit de `MenuController` de logica weggehaald voor het aanmaken van een nieuw `Menu` deze verplaatst naar
    de `MenuFactory`
+9. Uit de `MenuController`, `XMLAccessor` en de `Presentation` de vele attributen naar een utility classe gezet zodat de
+   classes niet te groot worden en het makkelijker word om deze op een later moment aan te passen
+10. De `DemoAccessor` op dezelfde manier laden als de `XMLAccessor` omdat de `DemoAccessor` niet logisch was genoemd en
+    op een andere manier werkte waar door het minder uitbreidbaar was.
