@@ -1,6 +1,9 @@
 package jabberpoint.factories;
 
 import jabberpoint.*;
+import jabberpoint.accessors.Accessor;
+import jabberpoint.accessors.DemoAccessor;
+import jabberpoint.accessors.XMLAccessor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +22,7 @@ public class PresentationFactory {
         Accessor accessor;
 
         if (type == null) {
-            accessor = new DemoPresentation();
+            accessor = new DemoAccessor();
         } else if (type.equals("xml")) {
             accessor = new XMLAccessor();
         } else {
@@ -38,7 +41,7 @@ public class PresentationFactory {
 
         Accessor accessor;
         if (type == null) {
-            accessor = new DemoPresentation();
+            accessor = new DemoAccessor();
         } else if (type.equals("xml")) {
             accessor = new XMLAccessor();
         } else {

@@ -1,4 +1,8 @@
-package jabberpoint;
+package jabberpoint.accessors;
+
+import jabberpoint.BitmapItem;
+import jabberpoint.Presentation;
+import jabberpoint.Slide;
 
 /**
  * A built-in demo presentation
@@ -7,7 +11,7 @@ package jabberpoint;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class DemoPresentation extends Accessor {
+public class DemoAccessor extends Accessor {
 
     public void loadFile(Presentation presentation, String unusedFilename) {
         presentation.setTitle("Demo JabberPoint.Presentation");

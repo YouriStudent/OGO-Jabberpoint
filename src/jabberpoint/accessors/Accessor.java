@@ -1,4 +1,6 @@
-package jabberpoint;
+package jabberpoint.accessors;
+
+import jabberpoint.Presentation;
 
 import java.io.IOException;
 
