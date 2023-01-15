@@ -41,13 +41,14 @@ public class Slide {
         // The title is treated separately
         SlideItem slideItem = new TextItem(0, getTitle());
 
-        Style style = StyleFactory.getStyle(slideItem.getLevel());
+        int slideItemLvl = slideItem.getLevel();
+        Style style = StyleFactory.getStyle(slideItemLvl);
 
         slideItem.draw(area.x, y, scale, g, style, view);
         y += slideItem.getBoundingBox(g, view, scale, style).height;
         for (int number = 0; number < getSize(); number++) {
             slideItem = getSlideItems().elementAt(number);
-            style = StyleFactory.getStyle(slideItem.getLevel());
+            style = StyleFactory.getStyle(slideItemLvl);
             slideItem.draw(area.x, y, scale, g, style, view);
             y += slideItem.getBoundingBox(g, view, scale, style).height;
         }
