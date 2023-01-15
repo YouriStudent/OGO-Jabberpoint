@@ -9,13 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class PresentationFactory {
-    protected static final String IOERR = "IO Error: ";
-    protected static final String JABERR = "Jabberpoint Error ";
-    protected static final String IOEX = "IO Exception: ";
-    protected static final String LOADERR = "Load Error";
-    protected static final String SAVEERR = "Save Error";
+import static jabberpoint.utility.PresentationErrors.*;
 
+public class PresentationFactory {
     public static void loadPresentation(String type, Presentation presentation, String filename) {
         // Generate styles for a presentation
         StyleFactory.generateDefaultStyles();
