@@ -32,3 +32,9 @@ Youri Tapper ***Studentnummer*** 5076315
    classes niet te groot worden en het makkelijker word om deze op een later moment aan te passen
 10. De `DemoAccessor` op dezelfde manier laden als de `XMLAccessor` omdat de `DemoAccessor` niet logisch was genoemd en
     op een andere manier werkte waar door het minder uitbreidbaar was.
+
+# ClassDiagram
+## Office versie
+
+## Nieuwe systeem
+![nieuwe-versie.png](nieuwe-versie.png)

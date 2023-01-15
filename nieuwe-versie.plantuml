@@ -1,0 +1,300 @@
+@startuml
+
+title __JABBERPOINT_SOURCECODE_STUDENTS's Class Diagram__\n
+
+  namespace jabberpoint {
+      class jabberpoint.AboutBox {
+          {static} + show()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.JabberPoint {
+          {static} + HEIGHT : int
+          {static} + WIDTH : int
+          {static} # JABVERSION : String
+          {static} + exit()
+          {static} + main()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.Presentation {
+          - currentSlideNumber : int
+          - showTitle : String
+          - slides : ArrayList<Slide>
+          + Presentation()
+          + Presentation()
+          + append()
+          + changeSlide()
+          + clear()
+          + getCurrentSlide()
+          + getSize()
+          + getSlide()
+          + getSlideNumber()
+          + getTitle()
+          + nextSlide()
+          + prevSlide()
+          + setShowView()
+          + setTitle()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.Slide {
+          # items : Vector<SlideItem>
+          # title : String
+          + Slide()
+          + append()
+          + append()
+          + draw()
+          + getSize()
+          + getSlideItems()
+          + getTitle()
+          + setTitle()
+          - getScale()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.SlideViewerComponent {
+          {static} - BGCOLOR : Color
+          {static} - COLOR : Color
+          {static} - FONTHEIGHT : int
+          {static} - FONTNAME : String
+          {static} - FONTSTYLE : int
+          {static} - XPOS : int
+          {static} - YPOS : int
+          - frame : JFrame
+          - labelFont : Font
+          {static} - serialVersionUfID : long
+          + SlideViewerComponent()
+          + getPreferredSize()
+          + paintComponent()
+          + update()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.SlideViewerFrame {
+          {static} - JABTITLE : String
+          {static} - serialVersionUID : long
+          + SlideViewerFrame()
+          + setupWindow()
+      }
+    }
+
+
+    namespace jabberpoint {
+      class jabberpoint.Style {
+          + color : Color
+          + indent : int
+          + leading : int
+          ~ font : Font
+          ~ fontSize : int
+          {static} - FONTNAME : String
+          + Style()
+          + getColor()
+          + getFont()
+          + getIndent()
+          + toString()
+      }
+    }
+
+
+    jabberpoint.Presentation o-- jabberpoint.SlideViewerComponent : slideViewComponent
+    jabberpoint.SlideViewerComponent o-- jabberpoint.Presentation : presentation
+    jabberpoint.SlideViewerComponent o-- jabberpoint.Slide : slide
+
+  namespace jabberpoint {
+    namespace accessors {
+      abstract class jabberpoint.accessors.Accessor {
+          {abstract} + loadFile()
+          {abstract} + saveFile()
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace accessors {
+      class jabberpoint.accessors.DemoAccessor {
+          + loadFile()
+          + saveFile()
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace accessors {
+      class jabberpoint.accessors.XMLAccessor {
+          {static} # NFE : String
+          {static} # PCE : String
+          {static} # UNKNOWNTYPE : String
+          + loadFile()
+          + saveFile()
+          # loadSlideItem()
+          - getTitle()
+      }
+    }
+  }
+
+   namespace jabberpoint {
+      namespace controllers {
+        class jabberpoint.controllers.KeyController {
+            + KeyController()
+            + keyPressed()
+        }
+      }
+    }
+
+
+    namespace jabberpoint {
+      namespace controllers {
+        class jabberpoint.controllers.MenuController {
+            {static} + SAVEFILE : String
+            {static} + TESTFILE : String
+            {static} - serialVersionUID : long
+            + MenuController()
+        }
+      }
+    }
+
+  namespace jabberpoint {
+      namespace factories {
+        class jabberpoint.factories.MenuFactory {
+            {static} + CreateMenu()
+            {static} + createMenuItem()
+        }
+      }
+    }
+
+
+    namespace jabberpoint {
+      namespace factories {
+        class jabberpoint.factories.PresentationFactory {
+            {static} + loadPresentation()
+            {static} + savePresentation()
+        }
+      }
+    }
+
+
+    namespace jabberpoint {
+      namespace factories {
+        class jabberpoint.factories.StyleFactory {
+            {static} - styles : Style[]
+            {static} + generateDefaultStyles()
+            {static} + getStyle()
+        }
+      }
+    }
+  
+
+namespace jabberpoint {
+    namespace items {
+      class jabberpoint.items.BitmapItem {
+          {static} # FILE : String
+          {static} # NOTFOUND : String
+          - bufferedImage : BufferedImage
+          - imageName : String
+          + BitmapItem()
+          + draw()
+          + getBoundingBox()
+          + getName()
+          + toString()
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace items {
+      abstract class jabberpoint.items.SlideItem {
+          - level : int
+          + SlideItem()
+          {abstract} + draw()
+          {abstract} + getBoundingBox()
+          + getLevel()
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace items {
+      class jabberpoint.items.TextItem {
+          {static} - EMPTY_TEXT : String
+          - text : String
+          + TextItem()
+          + draw()
+          + getAttributedString()
+          + getBoundingBox()
+          + getText()
+          + toString()
+          - getLayouts()
+      }
+    }
+  }
+
+ namespace jabberpoint {
+    namespace utility {
+      class jabberpoint.utility.MenuAttributes {
+          {static} + ABOUT : String
+          {static} + EXIT : String
+          {static} + FILE : String
+          {static} + GOTO : String
+          {static} + HELP : String
+          {static} + NEW : String
+          {static} + NEXT : String
+          {static} + OPEN : String
+          {static} + PAGENR : String
+          {static} + PREV : String
+          {static} + SAVE : String
+          {static} + VIEW : String
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace utility {
+      class jabberpoint.utility.PresentationErrors {
+          {static} + IOERR : String
+          {static} + IOEX : String
+          {static} + JABERR : String
+          {static} + LOADERR : String
+          {static} + SAVEERR : String
+      }
+    }
+  }
+
+
+  namespace jabberpoint {
+    namespace utility {
+      class jabberpoint.utility.XMLAttributes {
+          {static} + IMAGE : String
+          {static} + ITEM : String
+          {static} + KIND : String
+          {static} + LEVEL : String
+          {static} + SHOWTITLE : String
+          {static} + SLIDE : String
+          {static} + SLIDETITLE : String
+          {static} + TEXT : String
+      }
+    }
+  }
+  jabberpoint.accessors.DemoAccessor -up-|> jabberpoint.accessors.Accessor
+  jabberpoint.accessors.XMLAccessor -up-|> jabberpoint.accessors.Accessor
+  jabberpoint.controllers.KeyController o-- jabberpoint.Presentation : presentation
+  jabberpoint.items.BitmapItem -up-|> jabberpoint.items.SlideItem
+  jabberpoint.items.TextItem -up-|> jabberpoint.items.SlideItem
+
+
+@enduml
