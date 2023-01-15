@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * jabberpoint.AboutBox of Jabberpoint
+ * AboutBox of Jabberpoint
  */
 public class AboutBox {
     public static void show(Frame parent) {
