@@ -3,7 +3,7 @@
 <presentation>
 <showtitle>Demo Presentation</showtitle>
 <slide>
-<title>JabberPoint</title>
+<title>jabberpoint</title>
 <item kind="text" level="1">The Java prestentation tool</item>
 <item kind="text" level="2">Copyright (c) 1996-2000: Ian Darwin</item>
 <item kind="text" level="2">Copyright (c) 2000-now:</item>
@@ -31,6 +31,6 @@
 <item kind="text" level="2">use File->Open from the menu.</item>
 <item kind="text" level="1"> </item>
 <item kind="text" level="1">This is the end of the presentation.</item>
-<item kind="image" level="1">JabberPoint.jpg</item>
+<item kind="image" level="1">jabberpoint.jpg</item>
 </slide>
 </presentation>

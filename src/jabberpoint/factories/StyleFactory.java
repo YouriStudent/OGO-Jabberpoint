@@ -1,3 +1,7 @@
+package jabberpoint.factories;
+
+import jabberpoint.Style;
+
 import java.awt.*;
 
 public class StyleFactory {
@@ -16,9 +20,13 @@ public class StyleFactory {
         // style voor item-level 4
         styles[4] = new Style(90, Color.black, 24, 10);
     }
+
     public static Style getStyle(int level) {
         if (level >= styles.length) {
             level = styles.length - 1;
+        }
+        if (level < 0) {
+            level = 0;
         }
         return styles[level];
     }

@@ -1,3 +1,5 @@
+package jabberpoint;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -54,6 +56,6 @@ public class BitmapItem extends SlideItem {
     }
 
     public String toString() {
-        return "BitmapItem[" + getLevel() + "," + imageName + "]";
+        return "JabberPoint.BitmapItem[" + getLevel() + "," + imageName + "]";
     }
 }

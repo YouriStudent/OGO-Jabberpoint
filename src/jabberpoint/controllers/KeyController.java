@@ -1,8 +1,12 @@
+package jabberpoint.controllers;
+
+import jabberpoint.Presentation;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * <p>This is the KeyController (KeyListener)</p>
+ * <p>This is the JabberPoint.KeyController (KeyListener)</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman

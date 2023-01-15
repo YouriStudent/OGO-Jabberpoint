@@ -1,3 +1,5 @@
+package jabberpoint;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -15,7 +17,7 @@ import java.util.Vector;
 
 
 /**
- * XMLAccessor, reads and writes XML files
+ * JabberPoint.XMLAccessor, reads and writes XML files
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
@@ -29,7 +31,7 @@ public class XMLAccessor extends Accessor {
     protected static final String DEFAULT_API_TO_USE = "dom";
 
     /**
-     * Names of xml tags of attributes
+     * Names of XML tags of attributes
      */
     protected static final String SHOWTITLE = "showtitle";
     protected static final String SLIDETITLE = "title";
@@ -77,8 +79,6 @@ public class XMLAccessor extends Accessor {
                     loadSlideItem(slide, item);
                 }
             }
-        } catch (IOException iox) {
-            System.err.println(iox);
         } catch (SAXException sax) {
             System.err.println(sax.getMessage());
         } catch (ParserConfigurationException pcx) {

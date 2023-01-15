@@ -1,3 +1,10 @@
+package jabberpoint.controllers;
+
+import jabberpoint.AboutBox;
+import jabberpoint.JabberPoint;
+import jabberpoint.Presentation;
+import jabberpoint.factories.PresentationFactory;
+
 import javax.swing.*;
 import java.awt.*;
 

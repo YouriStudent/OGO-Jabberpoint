@@ -1,9 +1,11 @@
+package jabberpoint;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 /**
- * <p>SlideViewerComponent is a graphical component that ca display Slides.</p>
+ * <p>JabberPoint.SlideViewerComponent is a graphical component that ca display Slides.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
@@ -20,9 +22,9 @@ public class SlideViewerComponent extends JComponent {
     private static final int XPOS = 1100;
     private static final int YPOS = 20;
     private Slide slide; //The current slide
-    private Font labelFont = null; //The font for labels
-    private Presentation presentation = null; //The presentation
-    private JFrame frame = null;
+    private Font labelFont; //The font for labels
+    private Presentation presentation; //The presentation
+    private JFrame frame;
 
     public SlideViewerComponent(Presentation presentation, JFrame frame) {
         setBackground(BGCOLOR);
@@ -32,7 +34,7 @@ public class SlideViewerComponent extends JComponent {
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(Slide.WIDTH, Slide.HEIGHT);
+        return new Dimension(JabberPoint.WIDTH, JabberPoint.HEIGHT);
     }
 
     public void update(Presentation presentation, Slide data) {

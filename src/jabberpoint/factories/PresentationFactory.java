@@ -1,3 +1,7 @@
+package jabberpoint.factories;
+
+import jabberpoint.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;

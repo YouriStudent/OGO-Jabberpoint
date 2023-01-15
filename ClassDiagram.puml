@@ -1,0 +1,227 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class AboutBox{
+    show(Frame parent)
+}
+
+class Accessor{
+    + {static} String DEMO_NAME;
+    + {static} final String DEFAULT_EXTENSION;
+    + {static} getDemoAccessor() : void
+    + {abstract} loadFile(Presentation p, String fn) throws IOException : void
+    + {abstract} saveFile(Presentation p, String fn) throws IOException : void
+}
+
+class BitmapItem{
+    # {static} String FILE;
+    # {static} String NOTFOUND;
+    - BufferedImage bufferedImage;
+    - final String imageName;
+
+    + BitmapItem()
+    + BitmapItem(int level, String name)
+    + getName() : String
+    + Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
+    + draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) : void
+    + toString() : String
+
+
+}
+
+class DemoPresentation extends Accessor {
+    + loadFile(Presentation presentation, String unusedFilename) : void
+    + saveFile(Presentation presentation, String unusedFilename) : void
+}
+
+class JabberPoint {
+    # {static} final String IOERR;
+    # {static} final String JABERR;
+    # {static} final String JABVERSION;
+    + {static} void main(String[] argv)
+}
+
+class KeyController extends KeyAdapter {
+    - final Presentation presentation;
+    + KeyController(Presentation p)
+    + keyPressed(KeyEvent keyEvent): void
+}
+
+class MenuController extends MenuBar {
+
+    # {static} String ABOUT;
+    # {static} String FILE;
+    # {static} String EXIT;
+    # {static} String GOTO;
+    # {static} String HELP;
+    # {static} String NEW;
+    # {static} String NEXT;
+    # {static} String OPEN;
+    # {static} String PAGENR;
+    # {static} String PREV;
+    # {static} String SAVE;
+    # {static} String VIEW;
+    # {static} String TESTFILE;
+    # {static} String SAVEFILE;
+    # {static} String IOEX;
+    # {static} String LOADERR;
+    # {static} String SAVEERR;
+    - {static} long serialVersionUID;
+    - Frame parent;
+    - Presentation presentation;
+    public MenuController(Frame frame, Presentation pres)
+    public MenuItem mkMenuItem(String name)
+}
+
+class Presentation {
+    - String showTitle;
+    - ArrayList<Slide> showList;
+    - int currentSlideNumber;
+    - SlideViewerComponent slideViewComponent;
+
+    + Presentation()
+    + Presentation(SlideViewerComponent slideViewerComponent)
+    + getSize() : int
+    + getTitle() : String
+    + setTitle(String nt) : void
+    + setShowView(SlideViewerComponent slideViewerComponent) : void
+    + getSlideNumber() : int
+    + setSlideNumber(int number) : void
+    + prevSlide() : void
+    + nextSlide() : void
+    + clear() : void
+    + append(Slide slide) : void
+    + getSlide(int number) : Slide
+    + getCurrentSlide() : Slide
+    + exit(int n) : void
+}
+
+class Slide {
+    + {static} int WIDTH;
+    + {static} int HEIGHT;
+    # String title;
+    # Vector<SlideItem> items;
+    + Slide()
+    + append(SlideItem anItem) : Void
+    + getTitle() : String
+    + setTitle(String newTitle) : void
+    + append(int level, String message) : void
+    + getSlideItem(int number) : SlideItem
+    + getSlideItems() : Vector<SlideItem>
+    + getSize() : int
+    + draw(Graphics g, Rectangle area, ImageObserver view) : void
+    - getScale(Rectangle area) : float
+}
+
+
+abstract class SlideItem {
+    - int level;
+
+    + SlideItem(int lev)
+    + SlideItem()
+    + getLevel() : int
+    + {abstract} getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style) : Rectangle
+    + {abstract} draw(int x, int y, float scale, Graphics g, Style style, ImageObserver observer) : void
+}
+
+
+class SlideViewerComponent extends JComponent {
+
+    - {static} long serialVersionUfID;
+    - {static} Color BGCOLOR;
+    - {static} Color COLOR;
+    - {static} String FONTNAME;
+    - {static} int FONTSTYLE;
+    - {static} int FONTHEIGHT;
+    - {static} int XPOS;
+    - {static} int YPOS;
+    - Slide slide;
+    - Font labelFont;
+    - Presentation presentation;
+    - JFrame frame;
+
+    + SlideViewerComponent(Presentation presentation, JFrame frame)
+    + getPreferredSize() : Dimension
+    + update(Presentation presentation, Slide data) : void
+    + paintComponent(Graphics g) : void
+}
+
+class SlideViewerFrame extends JFrame {
+    + final static int WIDTH;
+    + final static int HEIGHT;
+    - static final long serialVersionUID;
+    - static final String JABTITLE;
+
+    + SlideViewerFrame(String title, Presentation presentation)
+    + setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) : void
+}
+
+
+class Style {
+    - static final String FONTNAME = "Helvetica";
+    - static Style[] styles; // de styles
+    + int indent;
+    + Color color;
+    + Font font;
+    + int fontSize;
+    + int leading;
+
+    + Style(int indent, Color color, int points, int leading)
+    + {static createStyles() : void
+    + {static} getStyle(int level) : Style
+    + toString() : String
+    + getFont(float scale) : Font
+}
+
+class TextItem extends SlideItem {
+    - {static} String EMPTY_TEXT;
+    - String text;
+
+    + TextItem(int level, String string)
+    + TextItem()
+
+
+    + getText() : String
+
+
+    + getAttributedString(Style style, float scale) : AttributedString
+
+    + getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) : Rectangle
+
+    + draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) : void
+
+    - getLayouts(Graphics g, Style s, float scale) : List<TextLayout>
+
+    + toString() : String
+}
+
+
+class XMLAccessor extends Accessor {
+    # {static} String DEFAULT_API_TO_USE;
+
+    # {static} String SHOWTITLE;
+    # {static} String SLIDETITLE;
+    # {static} String SLIDE;
+    # {static} String ITEM;
+    # {static} String LEVEL;
+    # {static} String KIND;
+    # {static} String TEXT;
+    # {static} String IMAGE;
+
+    # {static} final String PCE;
+    # {static} final String UNKNOWNTYPE;
+    # {static} final String NFE;
+
+    - String getTitle(Element element, String tagName)
+
+    + loadFile(Presentation presentation, String filename) throws IOException : void
+    # loadSlideItem(Slide slide, Element item) : void
+    + saveFile(Presentation presentation, String filename) throws IOException : void
+}
+
+
+JabberPoint -> Presentation
+JabberPoint -> XMLAccessor
+JabberPoint -> SlideViewerFrame
+
+@enduml

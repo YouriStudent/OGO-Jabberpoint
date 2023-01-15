@@ -1,3 +1,5 @@
+package jabberpoint;
+
 import java.util.ArrayList;
 
 
@@ -70,7 +72,7 @@ public class Presentation {
     }
 
     //Remove the presentation
-    void clear() {
+    public void clear() {
         slides = new ArrayList<Slide>();
         changeSlide(-1);
     }

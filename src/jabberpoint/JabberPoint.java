@@ -1,5 +1,9 @@
+package jabberpoint;
+
+import jabberpoint.factories.PresentationFactory;
+
 /**
- * JabberPoint Main Program
+ * JabberPoint.JabberPoint Main Program
  * <p>This program is distributed under the terms of the accompanying
  * COPYRIGHT.txt file (which is NOT the GNU General Public License).
  * Please read it. Your use of the software constitutes acceptance
@@ -11,6 +15,8 @@
 
 public class JabberPoint {
     protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
+    public final static int WIDTH = 1200;
+    public final static int HEIGHT = 800;
 
     /**
      * The main program
@@ -29,5 +35,6 @@ public class JabberPoint {
     public static void exit(int n) {
         System.exit(n);
     }
+
 
 }
