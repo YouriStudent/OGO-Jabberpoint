@@ -1,4 +1,6 @@
-package jabberpoint;
+package jabberpoint.items;
+
+import jabberpoint.Style;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

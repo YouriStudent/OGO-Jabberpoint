@@ -1,6 +1,6 @@
 package jabberpoint.accessors;
 
-import jabberpoint.BitmapItem;
+import jabberpoint.items.BitmapItem;
 import jabberpoint.Presentation;
 import jabberpoint.Slide;
 

@@ -1,4 +1,6 @@
-package jabberpoint;
+package jabberpoint.items;
+
+import jabberpoint.Style;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;

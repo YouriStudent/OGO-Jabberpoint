@@ -1,6 +1,9 @@
 package jabberpoint.accessors;
 
 import jabberpoint.*;
+import jabberpoint.items.BitmapItem;
+import jabberpoint.items.SlideItem;
+import jabberpoint.items.TextItem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;

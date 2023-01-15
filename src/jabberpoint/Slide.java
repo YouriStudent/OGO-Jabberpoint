@@ -1,6 +1,8 @@
 package jabberpoint;
 
 import jabberpoint.factories.StyleFactory;
+import jabberpoint.items.SlideItem;
+import jabberpoint.items.TextItem;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -41,14 +43,14 @@ public class Slide {
         // The title is treated separately
         SlideItem slideItem = new TextItem(0, getTitle());
 
-        int slideItemLvl = slideItem.getLevel();
-        Style style = StyleFactory.getStyle(slideItemLvl);
+
+        Style style = StyleFactory.getStyle(slideItem.getLevel());
 
         slideItem.draw(area.x, y, scale, g, style, view);
         y += slideItem.getBoundingBox(g, view, scale, style).height;
         for (int number = 0; number < getSize(); number++) {
             slideItem = getSlideItems().elementAt(number);
-            style = StyleFactory.getStyle(slideItemLvl);
+            style = StyleFactory.getStyle(slideItem.getLevel());
             slideItem.draw(area.x, y, scale, g, style, view);
             y += slideItem.getBoundingBox(g, view, scale, style).height;
         }
